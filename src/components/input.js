@@ -11,7 +11,11 @@ const Searchbar = () => {
         {/* <button className="btn btn-primary" onClick={this.ComponentDidMount}>
         Submit
       </button> */}
+      <button onClick={props.handleFormSubmit} className="btn btn-primary mt-3">
+            Search
+          </button>
       </>
+   
         
          
 
