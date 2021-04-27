@@ -8,9 +8,9 @@ const Searchbar = () => {
         <Form>
             <Form.Control placeholder="Enter Emplyoyee Name" />
         </Form>
-        <button className="btn btn-primary" onClick={this.ComponentDidMount}>
+        {/* <button className="btn btn-primary" onClick={this.ComponentDidMount}>
         Submit
-      </button>
+      </button> */}
       </>
         
          

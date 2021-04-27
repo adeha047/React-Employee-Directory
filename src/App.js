@@ -26,6 +26,10 @@ class App extends Component {
   }
 
   componentDidMount() {
+    this.searchUsers();
+  }
+
+  searchUsers = () => {
     API.getUsers()
       // .then(res => res.json())
       .then(
@@ -42,6 +46,7 @@ class App extends Component {
           console.log(error);
         }
       )
+
   }
 
   render() {
@@ -52,7 +57,7 @@ class App extends Component {
     //   } else {
     //     return (
     //       <ul>
-    //         {items.map(item => (
+    //         {employees.map(item => (
     //           <li key={item.id}>
     //             {item.name} {item.price}
     //           </li>
