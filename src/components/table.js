@@ -10,7 +10,7 @@ const EmployeeTable = (props) => {
           <li className="list-group-item" >
               {employee.email}
               {employee.gender}
-              <img alt={result.title} className="img-fluid" src={employee.picture} />
+              <img alt={employee.name} className="img-fluid" src={employee.picture} />
           </li>
         ))}
       </ul>
