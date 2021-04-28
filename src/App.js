@@ -19,11 +19,15 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      // error: null,
-      // isLoaded: false,
+      
       employees: []
     };
   }
+
+  handleFormSubmit = event => {
+    event.preventDefault();
+    this.searchUsers(this.state.search);
+};
 
   componentDidMount() {
     this.searchUsers();
