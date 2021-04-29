@@ -4,17 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Searchbar from './components/input.js';
 import API from './utils/API.js'
 import EmployeeTable from './components/EmployeeTable/table.js';
+import Title from './components/Title/title.js';
 
-
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <Searchbar />
-
-//     </div>
-//   );
-// }
 
 class App extends Component {
   constructor() {
@@ -71,7 +62,9 @@ class App extends Component {
   render() {
     return (
       <div> 
+        <Title>Employee Directory</Title>
         {/* {this.state.employees ? ( */}
+
           <div> <Searchbar 
           search={this.state.search}
           handleFormSubmit={this.handleFormSubmit}
