@@ -3,7 +3,8 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Searchbar from './components/input.js';
 import API from './utils/API.js'
-import EmployeeTable from './components/table.js';
+import EmployeeTable from './components/employees/table.js';
+
 
 
 // function App() {
@@ -19,7 +20,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      
+      search: "",
       employees: []
     };
   }
@@ -27,7 +28,13 @@ class App extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     this.searchUsers(this.state.search);
-};
+}
+  handleRemove = id => {
+    // console.log(this.state);
+    this.setState({
+      employees: this.state.employees.filter(employees => employees.id !== id)
+    });
+  }
 
   componentDidMount() {
     this.searchUsers();
@@ -53,6 +60,19 @@ class App extends Component {
 
   }
 
+  handleInputChange = event => {
+    const name = event.target.name;
+    const value = event.target.value;
+    this.setState({
+      [name]: value
+    });
+  };
+
+  handleFormSubmit = event => {
+    event.preventDefault();
+    this.searchUsers(this.state.search);
+  };
+
   render() {
     //   if (error) {
     //     return <div>Error: {error.message}</div>;
@@ -73,8 +93,16 @@ class App extends Component {
     return (
       <div> 
         {this.state.employees ? (
-          <div> <Searchbar />
-          <EmployeeTable employees={this.state.employees} /> </div>
+          <div> <Searchbar 
+          search={this.state.search}
+          handleFormSubmit={this.handleFormSubmit}
+          handleInputChange={this.handleInputChange}
+          
+          />
+          <EmployeeTable 
+          key={this.state.employees.id}
+          employees={this.state.employees} /> 
+          </div>
           
 
         ): <h1> Loading... </h1>}
