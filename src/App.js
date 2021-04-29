@@ -59,9 +59,24 @@ class App extends Component {
     });
   }
 
+  // handleSort = (key, asc) => {
+  //   // copy
+  //   let employeeSorted = [...this.state.employees];
+
+  //   // sort by key and asc
+  //   employeeSorted.sort( (a, b) => {
+  //     return a[key] > b[key] ? asc * 1 : asc * -1;
+  //   });
+
+  //   // set the state
+  //   this.setState({ employees: employeeSorted });
+  
+
   render() {
     return (
+      
       <div> 
+        
         <Title>Employee Directory</Title>
         {/* {this.state.employees ? ( */}
 
@@ -74,8 +89,9 @@ class App extends Component {
           <EmployeeTable 
           key={this.state.employees.id}
           employees={this.state.employees} 
-          handleRemove={this.handleRemove}/> 
-          {...employee}
+          handleRemove={this.handleRemove}
+          // {...employees}
+          />
           </div>
           
 
