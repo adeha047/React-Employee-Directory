@@ -75,6 +75,7 @@ class App extends Component {
           key={this.state.employees.id}
           employees={this.state.employees} 
           handleRemove={this.handleRemove}/> 
+          {...employee}
           </div>
           
 
