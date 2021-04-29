@@ -74,22 +74,6 @@ class App extends Component {
   };
 
   render() {
-    //   if (error) {
-    //     return <div>Error: {error.message}</div>;
-    //   } else if (!isLoaded) {
-    //     return <div>Loading...</div>;
-    //   } else {
-    //     return (
-    //       <ul>
-    //         {employees.map(item => (
-    //           <li key={item.id}>
-    //             {item.name} {item.price}
-    //           </li>
-    //         ))}
-    //       </ul>
-    //     );
-    //   }
-    // }
     return (
       <div> 
         {this.state.employees ? (
