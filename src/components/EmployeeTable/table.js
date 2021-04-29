@@ -3,12 +3,13 @@ import './style.css';
 
 
 const EmployeeTable = (props) => {
-  console.log(props.employees)
+  console.log(props.employees.id)
   return (
-    <>
+    <ul>
         {props.employees.map(employee => (
-          <ul>
-            <div className="card">
+          
+            <div key={employee.id.value} className="card">
+              
             <li className="list-group-item" >
             <strong>Email:</strong> {employee.email}
               <div className="img-container"></div>
@@ -19,11 +20,10 @@ const EmployeeTable = (props) => {
             {employee.name.first}
             {employee.name.last}
             </li>
-            <span className="remove" onClick={() => props.handleRemove(props.id)}>X</span>
+            <span className="remove" onClick={() => props.handleRemove(employee.id.value)}>X</span>
             </div>
-          </ul>
         ))}
-    </>
+        </ul>
   )
 }
 export default EmployeeTable;

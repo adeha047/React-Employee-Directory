@@ -53,9 +53,10 @@ class App extends Component {
     this.searchUsers(this.state.search);
   };
   handleRemove = id => {
-    // console.log(this.state);
+    console.log(id);
     this.setState({
-      employees: this.state.employees.filter(employee => employee.id !== id)
+      // console.log(this.state.employees)
+      employees: this.state.employees.filter(employee => employee.id.value !== id)
     });
   }
 
@@ -81,7 +82,7 @@ class App extends Component {
         <Title>Employee Directory</Title>
         {/* {this.state.employees ? ( */}
 
-          <button onClick={() => this.handleSort("name", 1)}>Push for sort name</button>
+        <button onClick={() => this.handleSort("name", 1)}>Push for sort name</button>
         <button onClick={() => this.handleSort("name", -1)}>Push for sort name reverse</button>
 
           <div> <Searchbar 
@@ -91,7 +92,6 @@ class App extends Component {
           
           />
           <EmployeeTable 
-          key={this.state.employees.id}
           employees={this.state.employees} 
           handleRemove={this.handleRemove}
         
