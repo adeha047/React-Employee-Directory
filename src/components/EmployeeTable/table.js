@@ -21,8 +21,6 @@ const EmployeeTable = (props) => {
             </div>
           </ul>
         ))}
-      
-    );
     </>
   )
 }

@@ -25,17 +25,6 @@ class App extends Component {
     };
   }
 
-  handleFormSubmit = event => {
-    event.preventDefault();
-    this.searchUsers(this.state.search);
-}
-  handleRemove = id => {
-    // console.log(this.state);
-    this.setState({
-      employees: this.state.employees.filter(employee => employee.id !== id)
-    });
-  }
-
   componentDidMount() {
     this.searchUsers();
   }
@@ -72,11 +61,17 @@ class App extends Component {
     event.preventDefault();
     this.searchUsers(this.state.search);
   };
+  handleRemove = id => {
+    // console.log(this.state);
+    this.setState({
+      employees: this.state.employees.filter(employee => employee.id !== id)
+    });
+  }
 
   render() {
     return (
       <div> 
-        {this.state.employees ? (
+        {/* {this.state.employees ? ( */}
           <div> <Searchbar 
           search={this.state.search}
           handleFormSubmit={this.handleFormSubmit}
@@ -90,7 +85,7 @@ class App extends Component {
           </div>
           
 
-        ): <h1> Loading... </h1>}
+        ): <h1> Loading... </h1>
         
 
       </div>
