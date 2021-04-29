@@ -15,7 +15,7 @@ const EmployeeTable = (props) => {
               {employee.name.first}
               {employee.name.last}
             </li>
-            <span className="remove" onClick={() => props.handleRemove(props.id)}>X</span>
+            <span className="remove" onClick={() => employees.handleRemove(props.employees.name)}>X</span>
           </ul>
         ))}
       </div>
@@ -23,6 +23,4 @@ const EmployeeTable = (props) => {
     </>
   )
 }
-
-
 export default EmployeeTable;
