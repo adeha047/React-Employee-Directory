@@ -59,17 +59,18 @@ class App extends Component {
     });
   }
 
-  // handleSort = (key, asc) => {
-  //   // copy
-  //   let employeeSorted = [...this.state.employees];
+  handleSort = (key, asc) => {
+    // copy
+    let employeeSorted = [...this.state.employees];
 
-  //   // sort by key and asc
-  //   employeeSorted.sort( (a, b) => {
-  //     return a[key] > b[key] ? asc * 1 : asc * -1;
-  //   });
+    // sort by key and asc
+    employeeSorted.sort( (a, b) => {
+      return a[key] > b[key] ? asc * 1 : asc * -1;
+    });
 
-  //   // set the state
-  //   this.setState({ employees: employeeSorted });
+    // set the state
+    this.setState({ employees: employeeSorted });
+  }
   
 
   render() {
@@ -79,6 +80,9 @@ class App extends Component {
         
         <Title>Employee Directory</Title>
         {/* {this.state.employees ? ( */}
+
+          <button onClick={() => this.handleSort("name", 1)}>Push for sort name</button>
+        <button onClick={() => this.handleSort("name", -1)}>Push for sort name reverse</button>
 
           <div> <Searchbar 
           search={this.state.search}
@@ -90,15 +94,13 @@ class App extends Component {
           key={this.state.employees.id}
           employees={this.state.employees} 
           handleRemove={this.handleRemove}
+        
           // {...employees}
           />
           </div>
-          
-
-        ): <h1> Loading... </h1>
-        
 
       </div>
+
     )
   }
 
