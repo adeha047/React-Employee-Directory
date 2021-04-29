@@ -3,7 +3,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Searchbar from './components/input.js';
 import API from './utils/API.js'
-import EmployeeTable from './components/employees/table.js';
+import EmployeeTable from './components/EmployeeTable/table.js';
 
 
 
@@ -32,7 +32,7 @@ class App extends Component {
   handleRemove = id => {
     // console.log(this.state);
     this.setState({
-      employees: this.state.employees.filter(employees => employees.id !== id)
+      employees: this.state.employees.filter(employee => employee.id !== id)
     });
   }
 
@@ -101,7 +101,8 @@ class App extends Component {
           />
           <EmployeeTable 
           key={this.state.employees.id}
-          employees={this.state.employees} /> 
+          employees={this.state.employees} 
+          handleRemove={this.handleRemove}/> 
           </div>
           
 

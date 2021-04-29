@@ -1,13 +1,15 @@
 import React from 'react';
+import './style.css';
 
 
 const EmployeeTable = (props) => {
   console.log(props.employees)
   return (
     <>
-      <div className="card">
+      
         {props.employees.map(employee => (
           <ul>
+            <div className="card">
             <li className="list-group-item" >
               {employee.email}
               <div className="img-container"></div>
@@ -15,10 +17,11 @@ const EmployeeTable = (props) => {
               {employee.name.first}
               {employee.name.last}
             </li>
-            <span className="remove" onClick={() => employees.handleRemove(props.employees.name)}>X</span>
+            <span className="remove" onClick={() => props.handleRemove(props.id)}>X</span>
+            </div>
           </ul>
         ))}
-      </div>
+      
     );
     </>
   )
