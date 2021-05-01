@@ -19,7 +19,7 @@ class App extends Component {
 
   componentDidMount() {
     this.searchUsers();
-  
+
   }
 
   searchUsers = () => {
@@ -28,7 +28,7 @@ class App extends Component {
       .then(
         (result) => {
           // console.log(result.data.results)
-          
+
           this.setState({
             originalEmployees: result.data.results,
             employees: result.data.results
@@ -55,14 +55,14 @@ class App extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     const searchValue = document.querySelector("[name=search]").value
-   let filtered = [...this.state.originalEmployees]; 
-   filtered = filtered.filter(employee => employee.name.first === searchValue)
-    
+    let filtered = [...this.state.originalEmployees];
+    filtered = filtered.filter(employee => employee.name.first === searchValue)
+
     // const employees = this.state.employees.filter(employee => employee.first === searchValue)
 
     this.setState({
       employees: filtered
-    
+
     })
   };
   //copy/process/setstate
@@ -74,57 +74,49 @@ class App extends Component {
     });
   }
 
-  handleSort = (key, asc) => {
+  handleSort = (key, key2, asc) => {
     // copy
     let employeeSorted = [...this.state.employees];
 
     // sort by key and asc
-    employeeSorted.sort( (a, b) => {
-      return a[key] > b[key] ? asc * 1 : asc * -1;
+    employeeSorted.sort((a, b) => {
+      return a[key][key2] > b[key][key2] ? asc * 1 : asc * -1;
     });
 
     // set the state
     this.setState({ employees: employeeSorted });
+
   }
 
-  handleSort2 = (key2, asc) => {
-    // copy
-    let employeeSorted = [...this.state.employees];
 
-    // sort by key and asc
-    employeeSorted.sort( (a, b) => {
-      return a[key2] > b[key2] ? asc * 1 : asc * -1;
-    });
 
-    // set the state
-    this.setState({ employees: employeeSorted });
-  }
-  
-  
+
 
   render() {
     return (
-      
-      <div> 
-        
+
+      <div>
+
         <Title>Employee Directory</Title>
         {/* {this.state.employees ? ( */}
 
-        <button onClick={() => this.handleSort1("name", 1)}>Push for sort name</button>
-        <button onClick={() => this.handleSort1("name", -1)}>Push for sort name reverse</button>
+        {/* <button onClick={() => this.handleSort("name", 1)}>Push for sort name</button>
+        <button onClick={() => this.handleSort("name", -1)}>Push for sort name reverse</button> */}
+        <button type="button" className="btn btn-primary" style={{ marginRight: "25px" }} onClick={() => this.handleSort("name", "first", 1)}>Sort by first name</button>
+        <button type="button" className="btn btn-primary" style={{ marginRight: "25px" }} onClick={() => this.handleSort("name", "last", 1)}>Sort by last name</button>
 
-          <div> <Searchbar 
+        <div> <Searchbar
           search={this.state.getUsers}
           handleFormSubmit={this.handleFormSubmit}
           handleInputChange={this.handleInputChange}
-          
+
+        />
+          <EmployeeTable
+            employees={this.state.employees}
+            handleRemove={this.handleRemove}
           />
-          <EmployeeTable 
-          employees={this.state.employees} 
-          handleRemove={this.handleRemove}
-          />
-           <ResultList employees={this.state.employees} />
-          </div>
+          <ResultList employees={this.state.employees} />
+        </div>
 
       </div>
 
