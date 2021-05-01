@@ -110,8 +110,8 @@ class App extends Component {
         <Title>Employee Directory</Title>
         {/* {this.state.employees ? ( */}
 
-        <button onClick={() => this.handleSort("last", 1)}>Push for sort name</button>
-        <button onClick={() => this.handleSort("name", -1)}>Push for sort name reverse</button>
+        <button onClick={() => this.handleSort1("name", 1)}>Push for sort name</button>
+        <button onClick={() => this.handleSort1("name", -1)}>Push for sort name reverse</button>
 
           <div> <Searchbar 
           search={this.state.getUsers}
