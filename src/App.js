@@ -86,6 +86,20 @@ class App extends Component {
     // set the state
     this.setState({ employees: employeeSorted });
   }
+
+  handleSort2 = (key2, asc) => {
+    // copy
+    let employeeSorted = [...this.state.employees];
+
+    // sort by key and asc
+    employeeSorted.sort( (a, b) => {
+      return a[key2] > b[key2] ? asc * 1 : asc * -1;
+    });
+
+    // set the state
+    this.setState({ employees: employeeSorted });
+  }
+  
   
 
   render() {
