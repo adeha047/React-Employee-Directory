@@ -3,7 +3,8 @@ import './style.css';
 
 
 const EmployeeTable = (props) => {
-  console.log(props.employees.id)
+  console.log(props.employees)
+  // window.debugprops = props
   return (
     <ul>
         {props.employees.map(employee => (

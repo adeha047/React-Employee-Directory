@@ -44,13 +44,14 @@ class App extends Component {
     const name = event.target.name;
     const value = event.target.value;
     this.setState({
-      [name]: value
+      employees: this.state.employees.filter(employee => employee.name.first == "Donna")
+      // employees: employees.filter(employee => employee.name.first == "Donna"
     });
   };
 
   handleFormSubmit = event => {
     event.preventDefault();
-    this.searchUsers(this.state.search);
+    this.searchUsers(this.state.employees.search);
   };
   handleRemove = id => {
     console.log(id);
