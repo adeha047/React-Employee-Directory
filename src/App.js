@@ -44,7 +44,7 @@ class App extends Component {
     const name = event.target.name;
     const value = event.target.value;
     this.setState({
-      employees: this.state.employees.filter(employee => employee.name.first == "Donna")
+      employees: this.state.employees.filter(employee => employee.name.first == "")
       // employees: employees.filter(employee => employee.name.first == "Donna"
     });
   };
