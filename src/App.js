@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Searchbar from './components/input.js';
+import ResultList from "./components/resultList.js";
 import API from './utils/API.js'
 import EmployeeTable from './components/EmployeeTable/table.js';
 import Title from './components/Title/title.js';
@@ -18,6 +19,7 @@ class App extends Component {
 
   componentDidMount() {
     this.searchUsers();
+  
   }
 
   searchUsers = () => {
@@ -26,7 +28,9 @@ class App extends Component {
       .then(
         (result) => {
           // console.log(result.data.results)
+          
           this.setState({
+            originalEmployees: result.data.results,
             employees: result.data.results
           })
         },
@@ -44,15 +48,24 @@ class App extends Component {
     const name = event.target.name;
     const value = event.target.value;
     this.setState({
-      employees: this.state.employees.filter(employee => employee.name.first == "")
-      // employees: employees.filter(employee => employee.name.first == "Donna"
+      [name]: value
     });
   };
 
   handleFormSubmit = event => {
     event.preventDefault();
-    this.searchUsers(this.state.employees.search);
+    const searchValue = document.querySelector("[name=search]").value
+   let filtered = [...this.state.originalEmployees]; 
+   filtered = filtered.filter(employee => employee.name.first === searchValue)
+    
+    // const employees = this.state.employees.filter(employee => employee.first === searchValue)
+
+    this.setState({
+      employees: filtered
+    
+    })
   };
+  //copy/process/setstate
   handleRemove = id => {
     console.log(id);
     this.setState({
@@ -83,11 +96,11 @@ class App extends Component {
         <Title>Employee Directory</Title>
         {/* {this.state.employees ? ( */}
 
-        <button onClick={() => this.handleSort("name", 1)}>Push for sort name</button>
+        <button onClick={() => this.handleSort("last", 1)}>Push for sort name</button>
         <button onClick={() => this.handleSort("name", -1)}>Push for sort name reverse</button>
 
           <div> <Searchbar 
-          search={this.state.search}
+          search={this.state.getUsers}
           handleFormSubmit={this.handleFormSubmit}
           handleInputChange={this.handleInputChange}
           
@@ -95,9 +108,8 @@ class App extends Component {
           <EmployeeTable 
           employees={this.state.employees} 
           handleRemove={this.handleRemove}
-        
-          // {...employees}
           />
+           <ResultList employees={this.state.employees} />
           </div>
 
       </div>

@@ -4,7 +4,7 @@ import './style.css';
 
 const EmployeeTable = (props) => {
   console.log(props.employees)
-  // window.debugprops = props
+  window.debugprops = props
   return (
     <ul>
         {props.employees.map(employee => (
