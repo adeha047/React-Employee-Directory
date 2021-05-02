@@ -5,7 +5,7 @@ import "./style.css";
 function Searchbar(props) {
   return (
     <form> 
-      <div style={{marginRight: "12px", borderRadius: "50px" }} className="form-group">
+      <div className="form-group">
     
         <label htmlFor="search">Search:</label>
         <input
