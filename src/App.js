@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Searchbar from './components/input.js';
+import Searchbar from './components/Searchbar/searchbar.js';
 import ResultList from "./components/resultList.js";
 import API from './utils/API.js'
 import EmployeeTable from './components/EmployeeTable/table.js';
 import Title from './components/Title/title.js';
+
 
 
 class App extends Component {
@@ -93,6 +94,7 @@ class App extends Component {
 
 
   render() {
+    
     return (
 
       <div>
@@ -102,8 +104,8 @@ class App extends Component {
 
         {/* <button onClick={() => this.handleSort("name", 1)}>Push for sort name</button>
         <button onClick={() => this.handleSort("name", -1)}>Push for sort name reverse</button> */}
-        <button type="button" className="btn btn-primary" style={{ marginRight: "25px" }} onClick={() => this.handleSort("name", "first", 1)}>Sort by first name</button>
-        <button type="button" className="btn btn-primary" style={{ marginRight: "25px" }} onClick={() => this.handleSort("name", "last", 1)}>Sort by last name</button>
+        <button type="button" className="btn btn-primary" style={{ marginRight: "25px" }} onClick={() => this.handleSort("name", "first", 1)}>Sort by First Name</button>
+        <button type="button" className="btn btn-primary" style={{ marginRight: "25px" }} onClick={() => this.handleSort("name", "last", 1)}>Sort by Last Name</button>
 
         <div> <Searchbar
           search={this.state.getUsers}

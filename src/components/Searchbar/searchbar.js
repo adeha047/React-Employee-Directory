@@ -1,10 +1,12 @@
 import React from 'react';
+import "./style.css";
 
 
 function Searchbar(props) {
   return (
-    <form>
-      <div className="form-group">
+    <form> 
+      <div style={{marginRight: "12px", borderRadius: "50px" }} className="form-group">
+    
         <label htmlFor="search">Search:</label>
         <input
         //  key={props.employee.id.value}
@@ -16,7 +18,7 @@ function Searchbar(props) {
           placeholder="Search an employee by name"
           id="search"
         />
-        <button onClick={(event) => props.handleFormSubmit(event)} className="btn btn-primary mt-3">
+        <button style={{ margin: "10px" }}  onClick={(event) => props.handleFormSubmit(event)} className="btn btn-primary mt-3"> 
           Search
         </button>
       </div>
