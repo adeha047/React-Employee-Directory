@@ -34,9 +34,10 @@ https://github.com/adeha047/React-Employee-Directory
 
 ## Tech Used
 
-1. MongoDB
-2. Express
-3. Node
+1. React
+2. Node
+3. Axios 
+
 
 
 ## Licenses
